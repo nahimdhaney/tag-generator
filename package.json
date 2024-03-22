@@ -1,7 +1,7 @@
 {
   "name": "generate-tags",
-  "version": "1.0.2",
-  "description": "cli to generate tags for git repo",
+  "version": "1.0.3",
+  "description": "CLI to generate tags for git repo",
   "main": "generateTag.js",
   "repository": {
     "type": "git",
