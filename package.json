@@ -5,7 +5,7 @@
   "main": "generateTag.js",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/Naranja-Digital/gitlab/bonx-cm-transactions-bff.git"
+    "url": "https://github.com/nahimdhaney/tag-generator.git"
   },
   "scripts": {
     "test": "test"
