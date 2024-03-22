@@ -1,13 +1,23 @@
 {
-  "name": "tag-stages",
+  "name": "generate-tags",
   "version": "1.0.0",
-  "description": "",
+  "description": "cli to generate tags for git repo",
   "main": "generateTag.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nahimdhaney/tag-generator.git"
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "start": "node generateTag.js"
+  },
+  "keywords": [
+    "git",
+    "tag",
+    "cli",
+    "generate",
+    "tags"
+  ],
+  "author": "nahimdhaney",
   "license": "ISC",
   "dependencies": {
     "shelljs": "^0.8.5",
