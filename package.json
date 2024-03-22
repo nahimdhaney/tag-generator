@@ -8,10 +8,16 @@
     "url": "https://github.com/nahimdhaney/tag-generator.git"
   },
   "scripts": {
-    "test": "test"
+    "start": "node generateTag.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "git",
+    "tag",
+    "cli",
+    "generate",
+    "tags"
+  ],
+  "author": "nahimdhaney",
   "license": "ISC",
   "dependencies": {
     "shelljs": "^0.8.5",

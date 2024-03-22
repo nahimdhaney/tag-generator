@@ -33,7 +33,7 @@ async function generateTag() {
     const branchNumber = branchTags.map(tag => tag.replace(`${baseTag}${branchName}-`, ''))
         .map(tag => parseInt(tag))
         .sort((a, b) => a - b)
-        .pop() || 1;
+        .pop() || 0;
     console.log(branchNumber);    
     const nextTagNumber = branchNumber + 1;
     console.log(nextTagNumber);
