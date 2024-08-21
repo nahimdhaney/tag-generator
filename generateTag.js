@@ -27,18 +27,24 @@ async function generateTag() {
     }
 
     const tagsResult = shell.exec('git tag', { silent: true }).stdout;
-    const branchTags = tagsResult.split('\n').filter(tag => tag.startsWith(`${baseTag}${branchName}`));
+    let branchTags = tagsResult.split('\n').filter(tag => tag.startsWith(`${baseTag}${branchName}`));
     // get the next tag number
-    const branchNumber = branchTags.map(tag => tag.replace(`${baseTag}${branchName}-`, ''))
+    let branchNumber = branchTags.map(tag => tag.replace(`${baseTag}${branchName}-`, ''))
         .map(tag => parseInt(tag))
         .sort((a, b) => a - b)
         .pop() || 0;
-    const nextTagNumber = branchNumber + 1;
-    const newTag = `${baseTag}${branchName}-${nextTagNumber}`;
+    let nextTagNumber = branchNumber + 1;
+    let newTag = `${baseTag}${branchName}-${nextTagNumber}`;
+
+    // Loop to check if the tag already exists and find the next available one
+    while (branchTags.includes(newTag)) {
+        nextTagNumber++;
+        newTag = `${baseTag}${branchName}-${nextTagNumber}`;
+    }
 
     if (shell.exec(`git tag ${newTag}`).code === 0) {
         console.log(`Tag created successful: ${newTag}`);
-        // Hacer push del tag into remote repository
+        // Push the tag to the remote repository
         if (shell.exec(`git push origin ${newTag}`).code === 0) {
             console.log(`Tag '${newTag}' pushed successfully into remote repository.`);
         } else {
